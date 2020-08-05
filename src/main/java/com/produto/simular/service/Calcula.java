@@ -14,7 +14,7 @@ import com.produto.simular.model.Parcela;
 import com.produto.simular.model.Selic;
 
 @Service
-public class CalculaParcela {
+public class Calcula {
 
 	public List<Parcela> parcelas(int codigo, String nome, double valor, double valorEntrada, int qtdeParcelas) throws Exception {
 		ArrayList<Parcela> parcelas = new ArrayList<Parcela>();

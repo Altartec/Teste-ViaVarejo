@@ -11,14 +11,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.produto.simular.model.Parcela;
-import com.produto.simular.service.CalculaParcela;
+import com.produto.simular.service.Calcula;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 class SimularApplicationTests {
 
 	@Autowired
-	private CalculaParcela calculaParcelas;
+	private Calcula calculaParcelas;
 	
 	@Test
 	public void testaCalculoParcela() throws Exception // Testa se o calculo da parcela esta sendo efetuado.
@@ -29,12 +29,15 @@ class SimularApplicationTests {
 		double valor = 9999.99;
 		double valorEntrada = 9999.99;
 		int qtdeParcelas = 999;
-		
+
 		List<Parcela> listaParcelas = calculaParcelas.parcelas(codigo, nome, valor, valorEntrada, qtdeParcelas);
 		assertThat(listaParcelas.size()).isNotEqualTo(0);
 		assertThat(listaParcelas.size()).isEqualTo(999);
 		
 		
 	}
+	
+	
+	
 
 }
