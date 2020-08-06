@@ -13,11 +13,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.produto.simular.model.Compra;
+import com.produto.simular.model.CondicaoPagamento;
 import com.produto.simular.model.Parcela;
 import com.produto.simular.service.Calcula;
 import com.produto.simular.service.Verifica;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 @RestController
+@Api(value = "Simulação",description = "Api de teste ViaVarejo",produces = "application/json")
 @RequestMapping("simular")
 public class SimularController {
 
@@ -27,7 +34,17 @@ public class SimularController {
 	@Autowired
 	private Calcula calcula;
 
+	@ApiOperation(value = "Listar parcelas da simulação")
 	@GetMapping(consumes = "application/json", produces = "application/json")
+	
+	@ApiResponses(value = {
+		    @ApiResponse(code = 200, message = "Retorna a lista de parcelas",response = Parcela.class),
+		    @ApiResponse(code = 401, message = "Você não possui credenciais de autenticação válidas"),
+		    @ApiResponse(code = 403, message = "Você não tem permissão para acessar este recurso"),
+		    @ApiResponse(code = 404, message = "O servidor não pôde encontrar a sua solicitação"),
+		    @ApiResponse(code = 500, message = "Foi gerada uma exceção"),
+		})
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<?> listaParcelas(@RequestBody Compra compra) throws Exception {
 		

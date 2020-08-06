@@ -1,0 +1,1 @@
+{ "produto": { "codigo": 123, "nome": "Nome do Produto", "valor": 130.00 }, "condicaoPagamento": { "valorEntrada": 10.00, "qtdeParcelas": 12 } }

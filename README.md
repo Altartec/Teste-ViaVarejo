@@ -5,4 +5,5 @@ Este projeto tem a finalidade de demonstrar o desenvolvimento de um projeto de t
 * JUnit para teste unitário.
 * Spring Boot para desenvolvimento da API.
 * Maven para automação.
-* Swagger para documentação.
+* Swagger para documentação. (http://localhost:8080/swagger-ui.html)
+
